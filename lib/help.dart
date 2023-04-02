@@ -71,8 +71,75 @@ class Help extends StatelessWidget {
                       color: Color.fromRGBO(38, 36, 36, 0.7),
                       borderRadius: BorderRadius.circular(20),
                   ),
+                  child: Column(
+                  // crossAxisAlignment: CrossAxisAlignment.center,
+                  // mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.fromLTRB(40, 10, 40, 20),
+                            child: Text(
+                            'ข้อบังคับการใช้งาน',
+                            style: TextStyle(
+                            fontSize: 20,
+                            color: Colors.white,
+                            ),
+                          ), 
+                        ),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Padding(padding: EdgeInsets.fromLTRB(20, 10, 20, 20),
+                              child: Text(
+                                '1. ผู้ใช้สามารถใช้บริการการยืมจักรยานได้ตามจุดบริการต่างๆภายในมหาวิทยาลัย',
+                                style: TextStyle(
+                                fontSize: 18,
+                                color: Colors.white,
+                                ),
+                              ),
+                            ),
+                            Padding(padding: EdgeInsets.fromLTRB(20, 10, 20, 20),
+                              child: Text(
+                                '2. ผู้ใช้สามารถยืมได้ 1 บัญชีผู้ใช้ต่อจักรยาน 1 คัน',
+                                style: TextStyle(
+                                fontSize: 18,
+                                color: Colors.white,
+                                ),
+                              ),
+                            ),
+                            Padding(padding: EdgeInsets.fromLTRB(20, 10, 20, 20),
+                              child: Text(
+                                '3. ผู้ใช้สามารถยืมจักรยานได้ตั้งแต่ 09:00น. - 23:00น.',
+                                style: TextStyle(
+                                fontSize: 18,
+                                color: Colors.white,
+                                ),
+                              ),
+                            ),
+                            Padding(padding: EdgeInsets.fromLTRB(20, 10, 20, 20),
+                              child: Text(
+                                '4. ในกรณีที่ผู้ใช้คืนจักรยานเกินเวลาที่กำหนดจะต้องเสียค่าปรับ 400 บาท/วัน',
+                                style: TextStyle(
+                                fontSize: 18,
+                                color: Colors.white,
+                                ),
+                              ),
+                            ),
+                            Padding(padding: EdgeInsets.fromLTRB(20, 10, 20, 20),
+                              child: Text(
+                                '5. ในกรณีที่ผู้ใช้มีข้อสงสัยหรือต้องการที่จะแจ้งปัญหา สามารถติดต่อได้ที่เบอร์โทรศัพท์ 062-XXX-XXXX',
+                                style: TextStyle(
+                                fontSize: 18,
+                                color: Colors.white,
+                                ),
+                              ),
+                            ),
+                          ] 
+                        ),
+                      ]
                 ),
               ),
+            ),
           ],  
         ),
     );
