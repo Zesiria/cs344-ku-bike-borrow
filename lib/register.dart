@@ -25,6 +25,23 @@ class Register extends StatelessWidget {
                 ),
               ),
             ),
+            InkWell(
+                onTap: () {
+                  // ทำงานเมื่อปุ่มถูกคลิก
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => LogIn()),
+                  );
+                },
+                child: Container(
+                  padding: EdgeInsets.all(10.0),
+                  child: Icon(
+                    Icons.arrow_back,
+                    color: Colors.white,
+                    size: 30.0,
+                  ),
+                ),
+              ),
             Positioned(
               top: 50,
               left: 50,

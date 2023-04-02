@@ -1,6 +1,8 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
+import 'help.dart';
+import 'login.dart';
 import 'navbar.dart';
 
 
@@ -72,7 +74,7 @@ class Other extends StatelessWidget {
                 child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.start,
-                    children: const [
+                    children: [
                       // Text(
                       //   'KU',
                       //   style: TextStyle(
@@ -109,11 +111,29 @@ class Other extends StatelessWidget {
                         thickness: 2,
                         color: Color.fromRGBO(30, 47, 43, 1),
                       ),
-                      Text(
-                        'ศูนย์ความช่วยเหลือ',
-                        style: TextStyle(
-                        fontSize: 16,
-                        color: Colors.white,
+                      InkWell(
+                        onTap: () {
+                          // ทำงานเมื่อปุ่มถูกคลิก
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => Help()),
+                          );
+                        },
+                        child: Container(
+                          padding: EdgeInsets.all(10.0),
+                          // decoration: BoxDecoration(
+                          //   border: Border.all(
+                          //     color: Colors.blueAccent
+                          //     ),
+                          //   borderRadius: BorderRadius.circular(5.0),
+                          // ),
+                          child: Text(
+                            'ศูนย์ความช่วยเหลือ',
+                            style: TextStyle(
+                            fontSize: 16,
+                            color: Colors.white,
+                            ),
+                          ),
                         ),
                       ),
                       Divider(
@@ -121,11 +141,29 @@ class Other extends StatelessWidget {
                         thickness: 2,
                         color: Color.fromRGBO(30, 47, 43, 1),
                       ),
-                      Text(
-                        'ออกจากระบบ',
-                        style: TextStyle(
-                        fontSize: 16,
-                        color: Colors.white,
+                      InkWell(
+                        onTap: () {
+                          // ทำงานเมื่อปุ่มถูกคลิก
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => LogIn()),
+                          );
+                        },
+                        child: Container(
+                          padding: EdgeInsets.all(10.0),
+                          // decoration: BoxDecoration(
+                          //   border: Border.all(
+                          //     color: Colors.blueAccent
+                          //     ),
+                          //   borderRadius: BorderRadius.circular(5.0),
+                          // ),
+                          child: Text(
+                                'ออกจากระบบ',
+                                style: TextStyle(
+                                fontSize: 16,
+                                color: Colors.white,
+                                ),
+                              ),
                         ),
                       ),
                       Divider(
