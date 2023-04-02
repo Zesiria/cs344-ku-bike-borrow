@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'homepage.dart';
+import 'other.dart';
 
 // void main() => runApp(MaterialApp(
 //     builder: (context, child) {
@@ -28,18 +29,15 @@ class _NavBarState extends State<NavBar> {
       TextStyle(fontSize: 30, fontWeight: FontWeight.w600);
   static const List<Widget> _widgetOptions = <Widget>[
       HomePage(),
-    Text(
-      'Likes',
-      style: optionStyle,
-    ),
-    Text(
-      'Search',
-      style: optionStyle,
-    ),
-    Text(
-      'Profile',
-      style: optionStyle,
-    ),
+    // Text(
+    //   'Likes',
+    //   style: optionStyle,
+    // ),
+    // Text(
+    //   'Search',
+    //   style: optionStyle,
+    // ),
+    Other()
   ];
 
   @override
@@ -76,14 +74,14 @@ class _NavBarState extends State<NavBar> {
                   icon: Icons.home_outlined,
                   text: 'หน้าหลัก',
                 ),
-                GButton(
-                  icon: Icons.history_outlined,
-                  text: 'ประวัติ',
-                ),
-                GButton(
-                  icon: Icons.notifications_none_outlined,
-                  text: 'แจ้งเตือน',
-                ),
+                // GButton(
+                //   icon: Icons.history_outlined,
+                //   text: 'ประวัติ',
+                // ),
+                // GButton(
+                //   icon: Icons.notifications_none_outlined,
+                //   text: 'แจ้งเตือน',
+                // ),
                 GButton(
                   icon: Icons.menu_outlined,
                   text: 'อื่นๆ',

@@ -27,37 +27,6 @@ class HomePage extends StatelessWidget {
                 ),
               ),
             ),
-            InkWell(
-                onTap: () {
-                  // ทำงานเมื่อปุ่มถูกคลิก
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => LogIn()),
-                  );
-                },
-                child: Container(
-                  padding: EdgeInsets.all(10.0),
-                  // decoration: BoxDecoration(
-                  //   border: Border.all(
-                  //     color: Colors.blueAccent
-                  //     ),
-                  //   borderRadius: BorderRadius.circular(5.0),
-                  // ),
-                  // child: Text(
-                  //   'Go to Next Screen',
-                  //   style: TextStyle(
-                  //     color: Colors.white,
-                  //     fontSize: 20,
-                  //     fontWeight: FontWeight.bold,
-                  //   ),
-                  // ),
-                  child: Icon(
-                    Icons.arrow_back,
-                    color: Colors.white,
-                    size: 30.0,
-                  ),
-                ),
-              ),
             Positioned(
               top: 50,
               left: 50,
@@ -73,7 +42,7 @@ class HomePage extends StatelessWidget {
                 child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.start,
-                    children: const [
+                    children: <Widget> [
                       Text(
                         'KU',
                         style: TextStyle(
@@ -105,97 +74,174 @@ class HomePage extends StatelessWidget {
                         color: Colors.white,
                         ),
                       ),
+                      Padding(
+                        padding: EdgeInsets.fromLTRB(40, 40, 40, 20),
+                        child: Text(
+                                  'สถานะ : ',
+                                  style: TextStyle(
+                                  fontSize: 16,
+                                  color: Colors.white,
+                                  ),
+                                ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                        child: Text(
+                                  'ยืมเมื่อ : ',
+                                  style: TextStyle(
+                                  fontSize: 16,
+                                  color: Colors.white,
+                                  ),
+                                ),
+                      ),
+                      Padding(padding: EdgeInsets.fromLTRB(40, 70, 40, 20),
+                      child: Container(
+                          height: 50,
+                          decoration: BoxDecoration(
+                            gradient: LinearGradient(
+                              colors: [
+                              Color.fromRGBO(28, 103, 88, 1),
+                              Color.fromRGBO(61, 131, 97, 1),
+                              ],
+                              begin: Alignment.centerLeft,
+                              end: Alignment.centerRight,
+                            ),
+                            borderRadius: BorderRadius.circular(10),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Color.fromARGB(255, 15, 15, 15).withOpacity(0.5),
+                                spreadRadius: 2,
+                                blurRadius: 7,
+                                offset: Offset(0, 3),
+                              ),
+                            ],
+                          ),
+                          child: ElevatedButton(
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => NavBar()),
+                              );
+                            },
+                            style: ElevatedButton.styleFrom(
+                              foregroundColor: Colors.white, 
+                              backgroundColor: Colors.transparent,
+                              padding: EdgeInsets.symmetric(horizontal: 30),
+                              elevation: 0,
+                              textStyle: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            child: Text('ยืมจักรยาน'),
+                          ),
+                        ),
+                      ),
+                      Padding(padding: EdgeInsets.fromLTRB(40, 10, 40, 20),
+                      child: Container(
+                          height: 50,
+                          decoration: BoxDecoration(
+                            gradient: LinearGradient(
+                              colors: [
+                              Color.fromRGBO(28, 103, 88, 1),
+                              Color.fromRGBO(61, 131, 97, 1),
+                              ],
+                              begin: Alignment.centerLeft,
+                              end: Alignment.centerRight,
+                            ),
+                            borderRadius: BorderRadius.circular(10),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Color.fromARGB(255, 15, 15, 15).withOpacity(0.5),
+                                spreadRadius: 2,
+                                blurRadius: 7,
+                                offset: Offset(0, 3),
+                              ),
+                            ],
+                          ),
+                          child: ElevatedButton(
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => NavBar()),
+                              );
+                            },
+                            style: ElevatedButton.styleFrom(
+                              foregroundColor: Colors.white, 
+                              backgroundColor: Colors.transparent,
+                              padding: EdgeInsets.symmetric(horizontal: 30),
+                              elevation: 0,
+                              textStyle: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            child: Text('คืนจักรยาน'),
+                          ),
+                        ),
+                      ),
                     ],
                   ),
                 ),
               ),
-              Positioned(
-              top: 350,
-              left: 100,
-              right: 100,
-              child: Container(
-                height: 50,
-                width: 100,
-                decoration: BoxDecoration(
-                     gradient: LinearGradient(
-                     begin: Alignment.topLeft,
-                     end: Alignment.bottomRight,
-                     colors: const [
-                    Color.fromRGBO(28, 103, 88, 1),
-                    Color.fromRGBO(61, 131, 97, 1),
-                  ],
-                ),
-                    borderRadius: BorderRadius.circular(5),
-                ),
-                child: const Center(
-                  child: Text(
-                        'ยืมจักรยาน',
-                        style: TextStyle(
-                        fontSize: 16, 
-                        color: Colors.white,
-                        ),
-                      ),
-                    ),
-              ),
-            ),
-            Positioned(
-              top: 440,
-              left: 100,
-              right: 100,
-              child: Container(
-                height: 50,
-                width: 100,
-                decoration: BoxDecoration(
-                     gradient: LinearGradient(
-                     begin: Alignment.topLeft,
-                     end: Alignment.bottomRight,
-                     colors: const [
-                    Color.fromRGBO(28, 103, 88, 1),
-                    Color.fromRGBO(61, 131, 97, 1),
-                  ],
-                ),
-                    borderRadius: BorderRadius.circular(5),
-                ),
-                child: const Center(
-                  child: Text(
-                        'คืนจักรยาน',
-                        style: TextStyle(
-                        fontSize: 16, 
-                        color: Colors.white,
-                        ),
-                      ),
-                    ),
-              ),
-            ),
-            Positioned(
-              top: 530,
-              left: 100,
-              right: 100,
-              child: Container(
-                height: 50,
-                width: 100,
-                decoration: BoxDecoration(
-                     gradient: LinearGradient(
-                     begin: Alignment.topLeft,
-                     end: Alignment.bottomRight,
-                     colors: const [
-                    Color.fromRGBO(28, 103, 88, 1),
-                    Color.fromRGBO(61, 131, 97, 1),
-                  ],
-                ),
-                    borderRadius: BorderRadius.circular(5),
-                ),
-                child: const Center(
-                  child: Text(
-                        'ตรวจสอบสถานะจักรยาน',
-                        style: TextStyle(
-                        fontSize: 16, 
-                        color: Colors.white,
-                        ),
-                      ),
-                    ),     
-              ),
-            ),
+            //   Positioned(
+            //   top: 400,
+            //   left: 100,
+            //   right: 100,
+            //   child: Container(
+            //     height: 50,
+            //     width: 100,
+            //     decoration: BoxDecoration(
+            //          gradient: LinearGradient(
+            //          begin: Alignment.topLeft,
+            //          end: Alignment.bottomRight,
+            //          colors: const [
+            //         Color.fromRGBO(28, 103, 88, 1),
+            //         Color.fromRGBO(61, 131, 97, 1),
+            //       ],
+            //     ),
+            //         borderRadius: BorderRadius.circular(5),
+            //     ),
+            //     child: const Center(
+            //       child: Text(
+            //             'ยืมจักรยาน',
+            //             style: TextStyle(
+            //             fontSize: 16, 
+            //             color: Colors.white,
+            //             ),
+            //           ),
+            //         ),
+            //   ),
+            // ),
+            // Positioned(
+            //   top: 470,
+            //   left: 100,
+            //   right: 100,
+            //   child: Container(
+            //     height: 50,
+            //     width: 100,
+            //     decoration: BoxDecoration(
+            //          gradient: LinearGradient(
+            //          begin: Alignment.topLeft,
+            //          end: Alignment.bottomRight,
+            //          colors: const [
+            //         Color.fromRGBO(28, 103, 88, 1),
+            //         Color.fromRGBO(61, 131, 97, 1),
+            //       ],
+            //     ),
+            //         borderRadius: BorderRadius.circular(5),
+            //     ),
+            //     child: const Center(
+            //       child: Text(
+            //             'คืนจักรยาน',
+            //             style: TextStyle(
+            //             fontSize: 16, 
+            //             color: Colors.white,
+            //             ),
+            //           ),
+            //         ),
+            //   ),
+            // ),
           ],  
         ),
     );

@@ -25,6 +25,23 @@ class Register extends StatelessWidget {
                 ),
               ),
             ),
+            InkWell(
+                onTap: () {
+                  // ทำงานเมื่อปุ่มถูกคลิก
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => LogIn()),
+                  );
+                },
+                child: Container(
+                  padding: EdgeInsets.all(10.0),
+                  child: Icon(
+                    Icons.arrow_back,
+                    color: Colors.white,
+                    size: 30.0,
+                  ),
+                ),
+              ),
             Positioned(
               top: 50,
               left: 50,
@@ -99,6 +116,7 @@ class Register extends StatelessWidget {
                         const Padding(
                           padding: EdgeInsets.symmetric(horizontal: 20, vertical: 30),
                           child: TextField(
+                            obscureText: true,
                             decoration: InputDecoration(
                               border: OutlineInputBorder(
                                 borderSide: BorderSide(
@@ -119,6 +137,7 @@ class Register extends StatelessWidget {
                         const Padding(
                           padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
                           child: TextField(
+                            obscureText: true,
                             decoration: InputDecoration(
                               border: OutlineInputBorder(
                                 borderSide: BorderSide(
