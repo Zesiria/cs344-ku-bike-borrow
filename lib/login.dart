@@ -1,14 +1,20 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, library_private_types_in_public_api
 
 import 'package:flutter/material.dart';
 import 'package:ku_bike_borrow_project/register.dart';
 import 'homepage.dart';
 import 'navbar.dart';
 
-class LogIn extends StatelessWidget {
+class LogIn extends StatefulWidget {
   const LogIn({super.key});
 
+  @override
+  _LogInState createState() => _LogInState();
+}
 
+class _LogInState extends State<LogIn> {
+  final TextEditingController textEditingController = TextEditingController();
+  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -81,6 +87,7 @@ class LogIn extends StatelessWidget {
                         const Padding(
                           padding: EdgeInsets.symmetric(horizontal: 20, vertical: 30),
                           child: TextField(
+                            obscureText: true,
                             decoration: InputDecoration(
                               border: OutlineInputBorder(
                                 borderSide: BorderSide(
@@ -119,26 +126,52 @@ class LogIn extends StatelessWidget {
                               ),
                             ],
                           ),
-                              child: ElevatedButton(
-                                onPressed: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(builder: (context) => NavBar()),
-                                  );
-                                },
-                                style: ElevatedButton.styleFrom(
-                                  foregroundColor: Colors.white, 
-                                  backgroundColor: Colors.transparent,
-                                  padding: EdgeInsets.symmetric(horizontal: 30),
-                                  elevation: 0,
-                                  textStyle: TextStyle(
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                                child: Text('Login'),
+                          child: ElevatedButton(
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => NavBar()),
+                              );
+                            },
+                            style: ElevatedButton.styleFrom(
+                              foregroundColor: Colors.white, 
+                              backgroundColor: Colors.transparent,
+                              padding: EdgeInsets.symmetric(horizontal: 30),
+                              elevation: 0,
+                              textStyle: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
                               ),
+                            ),
+                            child: Text('Login'),
                           ),
+                        ),
+                        InkWell(
+                          onTap: () {
+                            // ทำงานเมื่อปุ่มถูกคลิก
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => Register()),
+                            );
+                          },
+                          child: Container(
+                            padding: EdgeInsets.all(10.0),
+                            // decoration: BoxDecoration(
+                            //   border: Border.all(
+                            //     color: Colors.blueAccent
+                            //     ),
+                            //   borderRadius: BorderRadius.circular(5.0),
+                            // ),
+                            child: Text(
+                              'Register',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                        ),
                       ],
                     ),
                   ),

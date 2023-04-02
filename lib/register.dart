@@ -99,6 +99,7 @@ class Register extends StatelessWidget {
                         const Padding(
                           padding: EdgeInsets.symmetric(horizontal: 20, vertical: 30),
                           child: TextField(
+                            obscureText: true,
                             decoration: InputDecoration(
                               border: OutlineInputBorder(
                                 borderSide: BorderSide(
@@ -119,6 +120,7 @@ class Register extends StatelessWidget {
                         const Padding(
                           padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
                           child: TextField(
+                            obscureText: true,
                             decoration: InputDecoration(
                               border: OutlineInputBorder(
                                 borderSide: BorderSide(

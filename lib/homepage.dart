@@ -105,12 +105,32 @@ class HomePage extends StatelessWidget {
                         color: Colors.white,
                         ),
                       ),
+                      Padding(
+                        padding: EdgeInsets.fromLTRB(40, 40, 40, 20),
+                        child: Text(
+                                  'สถานะ : ',
+                                  style: TextStyle(
+                                  fontSize: 16,
+                                  color: Colors.white,
+                                  ),
+                                ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                        child: Text(
+                                  'ยืมเมื่อ : ',
+                                  style: TextStyle(
+                                  fontSize: 16,
+                                  color: Colors.white,
+                                  ),
+                                ),
+                      ),
                     ],
                   ),
                 ),
               ),
               Positioned(
-              top: 350,
+              top: 400,
               left: 100,
               right: 100,
               child: Container(
@@ -139,7 +159,7 @@ class HomePage extends StatelessWidget {
               ),
             ),
             Positioned(
-              top: 440,
+              top: 470,
               left: 100,
               right: 100,
               child: Container(
@@ -165,35 +185,6 @@ class HomePage extends StatelessWidget {
                         ),
                       ),
                     ),
-              ),
-            ),
-            Positioned(
-              top: 530,
-              left: 100,
-              right: 100,
-              child: Container(
-                height: 50,
-                width: 100,
-                decoration: BoxDecoration(
-                     gradient: LinearGradient(
-                     begin: Alignment.topLeft,
-                     end: Alignment.bottomRight,
-                     colors: const [
-                    Color.fromRGBO(28, 103, 88, 1),
-                    Color.fromRGBO(61, 131, 97, 1),
-                  ],
-                ),
-                    borderRadius: BorderRadius.circular(5),
-                ),
-                child: const Center(
-                  child: Text(
-                        'ตรวจสอบสถานะจักรยาน',
-                        style: TextStyle(
-                        fontSize: 16, 
-                        color: Colors.white,
-                        ),
-                      ),
-                    ),     
               ),
             ),
           ],  
