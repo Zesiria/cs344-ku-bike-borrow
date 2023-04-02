@@ -1,6 +1,9 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, library_private_types_in_public_api
 
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:ku_bike_borrow_project/api/ApiService.dart';
 import 'package:ku_bike_borrow_project/register.dart';
 import 'homepage.dart';
 import 'navbar.dart';
@@ -128,10 +131,11 @@ class _LogInState extends State<LogIn> {
                           ),
                           child: ElevatedButton(
                             onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(builder: (context) => NavBar()),
-                              );
+                              _onLoginButtonPressed();
+                              // Navigator.push(
+                              //   context,
+                              //   MaterialPageRoute(builder: (context) => NavBar()),
+                              // );
                             },
                             style: ElevatedButton.styleFrom(
                               foregroundColor: Colors.white, 
@@ -209,5 +213,16 @@ class _LogInState extends State<LogIn> {
           ],  
         ),
     );
+  }
+
+  void _onLoginButtonPressed() async {
+    Map<String, String> data = {
+      'username' : 'user',
+      'password' : '123456789'
+    };
+    final response = await ApiService.login(data);
+    print(response['message']);
+    print(response['status']);
+    print(response['data']);
   }
 }
