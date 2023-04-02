@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
+import 'package:ku_bike_borrow_project/help.dart';
 import 'homepage.dart';
 import 'other.dart';
 
@@ -28,7 +29,7 @@ class _NavBarState extends State<NavBar> {
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.w600);
   static const List<Widget> _widgetOptions = <Widget>[
-      HomePage(),
+    HomePage(),
     // Text(
     //   'Likes',
     //   style: optionStyle,
