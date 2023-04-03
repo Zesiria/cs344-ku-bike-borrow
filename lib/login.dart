@@ -1,8 +1,8 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, library_private_types_in_public_api
 
 import 'package:flutter/material.dart';
+import 'package:ku_bike_borrow_project/api/ApiService.dart';
 import 'package:ku_bike_borrow_project/register.dart';
-import 'homepage.dart';
 import 'navbar.dart';
 
 class LogIn extends StatefulWidget {
@@ -13,7 +13,8 @@ class LogIn extends StatefulWidget {
 }
 
 class _LogInState extends State<LogIn> {
-  final TextEditingController textEditingController = TextEditingController();
+  final TextEditingController _usernameController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   @override
@@ -64,9 +65,10 @@ class _LogInState extends State<LogIn> {
                           color: Colors.white,
                           ),
                         ),
-                        const Padding(
+                        Padding(
                           padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
                           child: TextField(
+                            controller: _usernameController,
                             decoration: InputDecoration(
                               border: OutlineInputBorder(
                                 borderSide: BorderSide(
@@ -84,9 +86,10 @@ class _LogInState extends State<LogIn> {
                             ),
                           ),
                         ),
-                        const Padding(
+                        Padding(
                           padding: EdgeInsets.symmetric(horizontal: 20, vertical: 30),
                           child: TextField(
+                            controller: _passwordController,
                             obscureText: true,
                             decoration: InputDecoration(
                               border: OutlineInputBorder(
@@ -128,10 +131,7 @@ class _LogInState extends State<LogIn> {
                           ),
                           child: ElevatedButton(
                             onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(builder: (context) => NavBar()),
-                              );
+                              _onLoginButtonPressed();
                             },
                             style: ElevatedButton.styleFrom(
                               foregroundColor: Colors.white, 
@@ -151,7 +151,7 @@ class _LogInState extends State<LogIn> {
                             // ทำงานเมื่อปุ่มถูกคลิก
                             Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (context) => Register()),
+                              MaterialPageRoute(builder: (context) => Register(error: "",)),
                             );
                           },
                           child: Container(
@@ -208,6 +208,34 @@ class _LogInState extends State<LogIn> {
             // ),
           ],  
         ),
+    );
+  }
+
+  void _onLoginButtonPressed() async {
+    final String username = _usernameController.text.trim();
+    final String password = _passwordController.text.trim();
+
+    Map<String, String> data = {
+      'username' : username,
+      'password' : password
+    };
+
+    final response = await ApiService.login(data);
+    if(response['data'] == null)
+      print(response['message']);
+    else{
+      Map<String, String> data = {
+        'token' : response['data']['token']
+      };
+      dynamic user = (await ApiService.fetchData(data))['data'];
+      _navigateHomepage(user);
+    }
+  }
+
+  void _navigateHomepage(dynamic user){
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => NavBar(user: user)),
     );
   }
 }

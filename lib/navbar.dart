@@ -17,7 +17,8 @@ import 'other.dart';
 //     home: const Example()));
 
 class NavBar extends StatefulWidget {
-  const NavBar({super.key});
+  final dynamic user;
+  const NavBar({super.key, @required this.user});
 
   @override
   // ignore: library_private_types_in_public_api
@@ -28,24 +29,13 @@ class _NavBarState extends State<NavBar> {
   int _selectedIndex = 0;
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.w600);
-  static const List<Widget> _widgetOptions = <Widget>[
-    HomePage(),
-    // Text(
-    //   'Likes',
-    //   style: optionStyle,
-    // ),
-    // Text(
-    //   'Search',
-    //   style: optionStyle,
-    // ),
-    Other()
-  ];
+
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: _widgetOptions.elementAt(_selectedIndex),
+        child: _widgetOption(),
       ),
       bottomNavigationBar: Container(
         decoration: BoxDecoration(
@@ -99,6 +89,17 @@ class _NavBarState extends State<NavBar> {
         ),
       ),
     );
+  }
+
+  Widget _widgetOption(){
+    print(widget.user);
+    Widget homepage = HomePage(user: widget.user);
+    Widget other = Other(user: widget.user);
+    List<Widget> widgetOptions = <Widget>[
+      homepage,
+      other
+    ];
+    return widgetOptions.elementAt(_selectedIndex);
   }
 }
 

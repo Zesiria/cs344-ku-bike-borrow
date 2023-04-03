@@ -1,12 +1,23 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
+
 import 'package:flutter/material.dart';
+import 'package:ku_bike_borrow_project/api/ApiService.dart';
 import 'login.dart';
 
-class Register extends StatelessWidget {
-  const Register({super.key});
+class Register extends StatefulWidget {
+  final String error;
+  const Register({super.key, required this.error});
 
+  @override
+  State<Register> createState() => _RegisterState();
+}
 
+class _RegisterState extends State<Register>{
+  final TextEditingController _usernameController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _confirmPasswordController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -73,9 +84,10 @@ class Register extends StatelessWidget {
                         //   color: Colors.white,
                         //   ),
                         // ),
-                        const Padding(
+                        Padding(
                           padding: EdgeInsets.symmetric(horizontal: 20, vertical: 30),
                           child: TextField(
+                            controller: _emailController,
                             decoration: InputDecoration(
                               border: OutlineInputBorder(
                                 borderSide: BorderSide(
@@ -93,9 +105,10 @@ class Register extends StatelessWidget {
                             ),
                           ),
                         ),
-                        const Padding(
+                        Padding(
                           padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
                           child: TextField(
+                            controller: _usernameController,
                             decoration: InputDecoration(
                               border: OutlineInputBorder(
                                 borderSide: BorderSide(
@@ -113,9 +126,10 @@ class Register extends StatelessWidget {
                             ),
                           ),
                         ),
-                        const Padding(
+                        Padding(
                           padding: EdgeInsets.symmetric(horizontal: 20, vertical: 30),
                           child: TextField(
+                            controller: _passwordController,
                             obscureText: true,
                             decoration: InputDecoration(
                               border: OutlineInputBorder(
@@ -134,9 +148,10 @@ class Register extends StatelessWidget {
                             ),
                           ),
                         ),
-                        const Padding(
+                        Padding(
                           padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
                           child: TextField(
+                            controller: _confirmPasswordController,
                             obscureText: true,
                             decoration: InputDecoration(
                               border: OutlineInputBorder(
@@ -178,10 +193,7 @@ class Register extends StatelessWidget {
                           ),
                           child: ElevatedButton(
                             onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(builder: (context) => LogIn()),
-                              );
+                              _register();
                             },
                             style: ElevatedButton.styleFrom(
                               foregroundColor: Colors.white, 
@@ -203,6 +215,41 @@ class Register extends StatelessWidget {
               ),
           ],  
         ),
+    );
+  }
+  void _register() async{
+    if(_passwordController.text.trim() != _confirmPasswordController.text.trim()){
+      _failToRegistered("Password and confirm password didn't match");
+      return;
+    }
+    Map<String, dynamic> data = {
+      'username' : _usernameController.text.trim(),
+      'password' : _passwordController.text.trim(),
+      'email' : _emailController.text.trim()
+    };
+
+    final response = await ApiService.register(data);
+    if(response['message'] == 'Successfully registered.') {
+      _successfullyRegistered();
+      return;
+    }
+    else{
+      _failToRegistered(response['message']);
+      return;
+    }
+  }
+
+  void _failToRegistered(String reason){
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => Register(error: reason)),
+    );
+  }
+
+  void _successfullyRegistered(){
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => LogIn()),
     );
   }
 }

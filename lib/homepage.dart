@@ -6,9 +6,8 @@ import 'login.dart';
 
 
 class HomePage extends StatelessWidget {
-  const HomePage({super.key});
-
-
+  final dynamic user;
+  const HomePage({super.key, @required this.user});
 
   @override
   Widget build(BuildContext context) {
@@ -68,7 +67,7 @@ class HomePage extends StatelessWidget {
                                 ),
                       ),
                       Text(
-                        'username',
+                        "${user['username']}",
                         style: TextStyle(
                         fontSize: 20,
                         color: Colors.white,
@@ -77,7 +76,7 @@ class HomePage extends StatelessWidget {
                       Padding(
                         padding: EdgeInsets.fromLTRB(40, 40, 40, 20),
                         child: Text(
-                                  'สถานะ : ',
+                                  'สถานะ : ${user['lend_status']==true?'กำลังยืม':'ไม่ได้ยืม'}',
                                   style: TextStyle(
                                   fontSize: 16,
                                   color: Colors.white,
@@ -87,7 +86,7 @@ class HomePage extends StatelessWidget {
                       Padding(
                         padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
                         child: Text(
-                                  'ยืมเมื่อ : ',
+                                  user['lend_date_time']==null?'':'ยืมเมื่อ : ${user['lend_date_time']}',
                                   style: TextStyle(
                                   fontSize: 16,
                                   color: Colors.white,
@@ -118,10 +117,10 @@ class HomePage extends StatelessWidget {
                           ),
                           child: ElevatedButton(
                             onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(builder: (context) => NavBar()),
-                              );
+                              // Navigator.push(
+                              //   context,
+                              //   MaterialPageRoute(builder: (context) => NavBar(userData: userData)),
+                              // );
                             },
                             style: ElevatedButton.styleFrom(
                               foregroundColor: Colors.white, 
@@ -163,7 +162,7 @@ class HomePage extends StatelessWidget {
                             onPressed: () {
                               Navigator.push(
                                 context,
-                                MaterialPageRoute(builder: (context) => NavBar()),
+                                MaterialPageRoute(builder: (context) => NavBar(user: user)),
                               );
                             },
                             style: ElevatedButton.styleFrom(
