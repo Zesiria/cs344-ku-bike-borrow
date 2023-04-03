@@ -39,4 +39,23 @@ class ApiService {
       return jsonDecode(response.body);
     }
   }
+
+  static Future<Map<String, dynamic>> register(Map<String, dynamic> data) async {
+    const url = '$_baseUrl/user/register';
+
+    final Map<String, String> requestBody = {
+      'email' : data['email'],
+      'username' : data['username'],
+      'password' : data['password']
+    };
+
+    final response = await http.post(Uri.parse(url),
+        headers: <String,String>{
+          'Content-Type' : 'application/json; charset=UTF-8'
+        },
+        body: jsonEncode(requestBody)
+    );
+
+    return jsonDecode(response.body);
+  }
 }

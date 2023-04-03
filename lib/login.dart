@@ -1,11 +1,8 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, library_private_types_in_public_api
 
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:ku_bike_borrow_project/api/ApiService.dart';
 import 'package:ku_bike_borrow_project/register.dart';
-import 'homepage.dart';
 import 'navbar.dart';
 
 class LogIn extends StatefulWidget {
@@ -154,7 +151,7 @@ class _LogInState extends State<LogIn> {
                             // ทำงานเมื่อปุ่มถูกคลิก
                             Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (context) => Register()),
+                              MaterialPageRoute(builder: (context) => Register(error: "",)),
                             );
                           },
                           child: Container(
