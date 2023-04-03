@@ -224,9 +224,7 @@ class _LogInState extends State<LogIn> {
     if(response['data'] == null)
       print(response['message']);
     else{
-      Map<String, String> data = {
-        'token' : response['data']['token']
-      };
+      String data = response['data']['token'];
       dynamic user = (await ApiService.fetchData(data))['data'];
       _navigateHomepage(user);
     }
