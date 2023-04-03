@@ -7,7 +7,8 @@ import 'navbar.dart';
 
 
 class Other extends StatelessWidget {
-  const Other({super.key});
+  final dynamic userData;
+  const Other({super.key, @required this.userData});
 
 
 
@@ -33,7 +34,7 @@ class Other extends StatelessWidget {
                   // ทำงานเมื่อปุ่มถูกคลิก
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => NavBar()),
+                    MaterialPageRoute(builder: (context) => NavBar(userData: userData,)),
                   );
                 },
                 child: Container(
@@ -116,7 +117,7 @@ class Other extends StatelessWidget {
                           // ทำงานเมื่อปุ่มถูกคลิก
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => Help()),
+                            MaterialPageRoute(builder: (context) => Help(userData: userData)),
                           );
                         },
                         child: Container(

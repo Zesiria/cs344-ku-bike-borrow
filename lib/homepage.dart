@@ -6,9 +6,8 @@ import 'login.dart';
 
 
 class HomePage extends StatelessWidget {
-  const HomePage({super.key});
-
-
+  final dynamic userData;
+  const HomePage({super.key, required this.userData});
 
   @override
   Widget build(BuildContext context) {
@@ -120,7 +119,7 @@ class HomePage extends StatelessWidget {
                             onPressed: () {
                               Navigator.push(
                                 context,
-                                MaterialPageRoute(builder: (context) => NavBar()),
+                                MaterialPageRoute(builder: (context) => NavBar(userData: userData)),
                               );
                             },
                             style: ElevatedButton.styleFrom(
@@ -163,7 +162,7 @@ class HomePage extends StatelessWidget {
                             onPressed: () {
                               Navigator.push(
                                 context,
-                                MaterialPageRoute(builder: (context) => NavBar()),
+                                MaterialPageRoute(builder: (context) => NavBar(userData: userData)),
                               );
                             },
                             style: ElevatedButton.styleFrom(

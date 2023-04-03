@@ -16,7 +16,8 @@ class LogIn extends StatefulWidget {
 }
 
 class _LogInState extends State<LogIn> {
-  final TextEditingController textEditingController = TextEditingController();
+  final TextEditingController _usernameController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   @override
@@ -67,9 +68,10 @@ class _LogInState extends State<LogIn> {
                           color: Colors.white,
                           ),
                         ),
-                        const Padding(
+                        Padding(
                           padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
                           child: TextField(
+                            controller: _usernameController,
                             decoration: InputDecoration(
                               border: OutlineInputBorder(
                                 borderSide: BorderSide(
@@ -87,9 +89,10 @@ class _LogInState extends State<LogIn> {
                             ),
                           ),
                         ),
-                        const Padding(
+                        Padding(
                           padding: EdgeInsets.symmetric(horizontal: 20, vertical: 30),
                           child: TextField(
+                            controller: _passwordController,
                             obscureText: true,
                             decoration: InputDecoration(
                               border: OutlineInputBorder(
@@ -132,10 +135,6 @@ class _LogInState extends State<LogIn> {
                           child: ElevatedButton(
                             onPressed: () {
                               _onLoginButtonPressed();
-                              // Navigator.push(
-                              //   context,
-                              //   MaterialPageRoute(builder: (context) => NavBar()),
-                              // );
                             },
                             style: ElevatedButton.styleFrom(
                               foregroundColor: Colors.white, 
@@ -216,13 +215,26 @@ class _LogInState extends State<LogIn> {
   }
 
   void _onLoginButtonPressed() async {
+    final String username = _usernameController.text.trim();
+    final String password = _passwordController.text.trim();
+
     Map<String, String> data = {
-      'username' : 'user',
-      'password' : '123456789'
+      'username' : username,
+      'password' : password
     };
+
     final response = await ApiService.login(data);
-    print(response['message']);
-    print(response['status']);
-    print(response['data']);
+    if(response['data'] == null)
+      print(response['message']);
+    else{
+      _navigateHomepage(response['user']);
+    }
+  }
+
+  void _navigateHomepage(dynamic user){
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => NavBar(userData: user)),
+    );
   }
 }
