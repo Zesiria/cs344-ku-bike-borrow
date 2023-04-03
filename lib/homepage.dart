@@ -1,9 +1,8 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
+import 'package:ku_bike_borrow_project/qrcode/QRVIewExample.dart';
 import 'navbar.dart';
-import 'login.dart';
-
 
 class HomePage extends StatelessWidget {
   final dynamic user;
@@ -117,10 +116,10 @@ class HomePage extends StatelessWidget {
                           ),
                           child: ElevatedButton(
                             onPressed: () {
-                              // Navigator.push(
-                              //   context,
-                              //   MaterialPageRoute(builder: (context) => NavBar(userData: userData)),
-                              // );
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => QRViewExample(user: user)),
+                              );
                             },
                             style: ElevatedButton.styleFrom(
                               foregroundColor: Colors.white, 
