@@ -16,8 +16,8 @@ import 'other.dart';
 //     home: const Example()));
 
 class NavBar extends StatefulWidget {
-  final dynamic userData;
-  const NavBar({super.key, @required this.userData});
+  final dynamic user;
+  const NavBar({super.key, @required this.user});
 
   @override
   // ignore: library_private_types_in_public_api
@@ -90,8 +90,9 @@ class _NavBarState extends State<NavBar> {
   }
 
   Widget _widgetOption(){
-    Widget homepage = HomePage(userData: widget.userData);
-    Widget other = Other(userData: widget.userData);
+    print(widget.user);
+    Widget homepage = HomePage(user: widget.user);
+    Widget other = Other(user: widget.user);
     List<Widget> widgetOptions = <Widget>[
       homepage,
       other

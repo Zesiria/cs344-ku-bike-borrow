@@ -7,8 +7,8 @@ import 'navbar.dart';
 
 
 class Other extends StatelessWidget {
-  final dynamic userData;
-  const Other({super.key, @required this.userData});
+  final dynamic user;
+  const Other({super.key, @required this.user});
 
 
 
@@ -34,7 +34,7 @@ class Other extends StatelessWidget {
                   // ทำงานเมื่อปุ่มถูกคลิก
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => NavBar(userData: userData,)),
+                    MaterialPageRoute(builder: (context) => NavBar(user: user,)),
                   );
                 },
                 child: Container(
@@ -93,7 +93,7 @@ class Other extends StatelessWidget {
                       Padding(
                         padding: EdgeInsets.fromLTRB(40, 40, 40, 20),
                           child: Text(
-                          'username',
+                          '${user['username']}',
                           style: TextStyle(
                           fontSize: 20,
                           color: Colors.white,
@@ -101,7 +101,7 @@ class Other extends StatelessWidget {
                         ), 
                       ),
                       Text(
-                        'Email',
+                        '${user['email']}',
                         style: TextStyle(
                         fontSize: 16,
                         color: Colors.white,
@@ -117,7 +117,7 @@ class Other extends StatelessWidget {
                           // ทำงานเมื่อปุ่มถูกคลิก
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => Help(userData: userData)),
+                            MaterialPageRoute(builder: (context) => Help(user: user)),
                           );
                         },
                         child: Container(

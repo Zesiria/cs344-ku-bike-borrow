@@ -227,14 +227,18 @@ class _LogInState extends State<LogIn> {
     if(response['data'] == null)
       print(response['message']);
     else{
-      _navigateHomepage(response['user']);
+      Map<String, String> data = {
+        'token' : response['data']['token']
+      };
+      dynamic user = (await ApiService.fetchData(data))['data'];
+      _navigateHomepage(user);
     }
   }
 
   void _navigateHomepage(dynamic user){
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => NavBar(userData: user)),
+      MaterialPageRoute(builder: (context) => NavBar(user: user)),
     );
   }
 }

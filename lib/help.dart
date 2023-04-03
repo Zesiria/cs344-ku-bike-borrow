@@ -7,8 +7,8 @@ import 'login.dart';
 
 
 class Help extends StatelessWidget {
-  final dynamic userData;
-  const Help({super.key, required this.userData});
+  final dynamic user;
+  const Help({super.key, required this.user});
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +32,7 @@ class Help extends StatelessWidget {
                   // ทำงานเมื่อปุ่มถูกคลิก
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => Other(userData: userData)),
+                    MaterialPageRoute(builder: (context) => Other(user: user)),
                   );
                 },
                 child: Container(
