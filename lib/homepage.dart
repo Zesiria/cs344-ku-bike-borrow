@@ -131,50 +131,7 @@ class HomePage extends StatelessWidget {
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
-                            child: Text('ยืมจักรยาน'),
-                          ),
-                        ),
-                      ),
-                      Padding(padding: EdgeInsets.fromLTRB(40, 10, 40, 20),
-                      child: Container(
-                          height: 50,
-                          decoration: BoxDecoration(
-                            gradient: LinearGradient(
-                              colors: [
-                              Color.fromRGBO(28, 103, 88, 1),
-                              Color.fromRGBO(61, 131, 97, 1),
-                              ],
-                              begin: Alignment.centerLeft,
-                              end: Alignment.centerRight,
-                            ),
-                            borderRadius: BorderRadius.circular(10),
-                            boxShadow: [
-                              BoxShadow(
-                                color: Color.fromARGB(255, 15, 15, 15).withOpacity(0.5),
-                                spreadRadius: 2,
-                                blurRadius: 7,
-                                offset: Offset(0, 3),
-                              ),
-                            ],
-                          ),
-                          child: ElevatedButton(
-                            onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(builder: (context) => NavBar(user: user)),
-                              );
-                            },
-                            style: ElevatedButton.styleFrom(
-                              foregroundColor: Colors.white, 
-                              backgroundColor: Colors.transparent,
-                              padding: EdgeInsets.symmetric(horizontal: 30),
-                              elevation: 0,
-                              textStyle: TextStyle(
-                                fontSize: 18,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            child: Text('คืนจักรยาน'),
+                            child: Text(user['lend_status']==true?'คืนจักรยาน':'ยืมจักรยาน'),
                           ),
                         ),
                       ),
