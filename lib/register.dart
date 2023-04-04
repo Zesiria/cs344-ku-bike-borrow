@@ -6,8 +6,7 @@ import 'package:ku_bike_borrow_project/api/ApiService.dart';
 import 'login.dart';
 
 class Register extends StatefulWidget {
-  final String error;
-  const Register({super.key, required this.error});
+  const Register({super.key});
 
   @override
   State<Register> createState() => _RegisterState();
@@ -219,7 +218,7 @@ class _RegisterState extends State<Register>{
   }
   void _register() async{
     if(_passwordController.text.trim() != _confirmPasswordController.text.trim()){
-      _failToRegistered("Password and confirm password didn't match");
+      alertDialog("Password and confirm password didn't match");
       return;
     }
     Map<String, dynamic> data = {
@@ -234,22 +233,43 @@ class _RegisterState extends State<Register>{
       return;
     }
     else{
-      _failToRegistered(response['message']);
+      alertDialog(response['message']);
       return;
     }
   }
 
-  void _failToRegistered(String reason){
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => Register(error: reason)),
-    );
+  void _successfullyRegistered(){
+    showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+           title: const Text('Result'),
+           content: Text("Successfully registered."),
+           actions: <Widget>[
+             ElevatedButton(onPressed: () {
+               Navigator.push(
+                 context,
+                 MaterialPageRoute(builder: (context) => LogIn()),
+               );
+             }, child: const Text("Confirm"))
+           ]
+          );
+        });
   }
 
-  void _successfullyRegistered(){
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => LogIn()),
-    );
+  void alertDialog(String message){
+    showDialog(
+     context: context,
+     builder: (BuildContext context) {
+       return AlertDialog(
+           title: const Text('Result'),
+           content: Text(message),
+           actions: <Widget>[
+             ElevatedButton(onPressed: () {
+               Navigator.pop(context);
+             }, child: const Text("Confirm"))
+           ]
+       );
+     });
   }
 }

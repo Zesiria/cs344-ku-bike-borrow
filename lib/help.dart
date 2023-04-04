@@ -32,7 +32,7 @@ class Help extends StatelessWidget {
                   // ทำงานเมื่อปุ่มถูกคลิก
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => Other(user: user)),
+                    MaterialPageRoute(builder: (context) => NavBar(user: user)),
                   );
                 },
                 child: Container(

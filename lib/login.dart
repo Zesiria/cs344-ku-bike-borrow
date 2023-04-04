@@ -151,7 +151,7 @@ class _LogInState extends State<LogIn> {
                             // ทำงานเมื่อปุ่มถูกคลิก
                             Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (context) => Register(error: "",)),
+                              MaterialPageRoute(builder: (context) => Register()),
                             );
                           },
                           child: Container(
@@ -221,13 +221,30 @@ class _LogInState extends State<LogIn> {
     };
 
     final response = await ApiService.login(data);
-    if(response['data'] == null)
-      print(response['message']);
+    if(response['data'] == null) {
+      alertDialog(response['message']);
+    }
     else{
       String data = response['data']['token'];
       dynamic user = (await ApiService.fetchData(data))['data'];
       _navigateHomepage(user);
     }
+  }
+
+  void alertDialog(String message){
+    showDialog(
+     context: context,
+     builder: (BuildContext context) {
+       return AlertDialog(
+           title: const Text('Result'),
+           content: Text(message),
+           actions: <Widget>[
+             ElevatedButton(onPressed: () {
+              Navigator.pop(context);
+             }, child: const Text("Confirm"))
+           ]
+       );
+     });
   }
 
   void _navigateHomepage(dynamic user){
