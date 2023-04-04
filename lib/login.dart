@@ -54,7 +54,7 @@ class _LogInState extends State<LogIn> {
                         Text(
                           'KU',
                           style: TextStyle(
-                          fontSize: 36, 
+                          fontSize: 36,
                           color: Colors.white,
                           ),
                         ),
@@ -134,7 +134,7 @@ class _LogInState extends State<LogIn> {
                               _onLoginButtonPressed();
                             },
                             style: ElevatedButton.styleFrom(
-                              foregroundColor: Colors.white, 
+                              foregroundColor: Colors.white,
                               backgroundColor: Colors.transparent,
                               padding: EdgeInsets.symmetric(horizontal: 30),
                               elevation: 0,
@@ -177,35 +177,6 @@ class _LogInState extends State<LogIn> {
                   ),
                 ),
               ),
-            //   Positioned(
-            //   top: 350,
-            //   left: 150,
-            //   right: 150,
-            //   child: Container(
-            //     height: 50,
-            //     width: 100,
-            //     decoration: BoxDecoration(
-            //          gradient: LinearGradient(
-            //          begin: Alignment.topLeft,
-            //          end: Alignment.bottomRight,
-            //          colors: const [
-            //         Color.fromRGBO(28, 103, 88, 1),
-            //         Color.fromRGBO(61, 131, 97, 1),
-            //       ],
-            //     ),
-            //         borderRadius: BorderRadius.circular(5),
-            //     ),
-            //     child: const Center(
-            //       child: Text(
-            //             'Login',
-            //             style: TextStyle(
-            //             fontSize: 16, 
-            //             color: Colors.white,
-            //             ),
-            //           ),
-            //         ),
-            //   ),
-            // ),
           ],  
         ),
     );

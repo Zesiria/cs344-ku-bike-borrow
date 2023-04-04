@@ -37,20 +37,6 @@ class Help extends StatelessWidget {
                 },
                 child: Container(
                   padding: EdgeInsets.all(10.0),
-                  // decoration: BoxDecoration(
-                  //   border: Border.all(
-                  //     color: Colors.blueAccent
-                  //     ),
-                  //   borderRadius: BorderRadius.circular(5.0),
-                  // ),
-                  // child: Text(
-                  //   'Go to Next Screen',
-                  //   style: TextStyle(
-                  //     color: Colors.white,
-                  //     fontSize: 20,
-                  //     fontWeight: FontWeight.bold,
-                  //   ),
-                  // ),
                   child: Icon(
                     Icons.arrow_back,
                     color: Colors.white,
@@ -71,8 +57,6 @@ class Help extends StatelessWidget {
                       borderRadius: BorderRadius.circular(20),
                   ),
                   child: Column(
-                  // crossAxisAlignment: CrossAxisAlignment.center,
-                  // mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         Padding(
                           padding: EdgeInsets.fromLTRB(40, 10, 40, 20),

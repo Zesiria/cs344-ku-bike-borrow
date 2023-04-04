@@ -39,20 +39,6 @@ class Other extends StatelessWidget {
                 },
                 child: Container(
                   padding: EdgeInsets.all(10.0),
-                  // decoration: BoxDecoration(
-                  //   border: Border.all(
-                  //     color: Colors.blueAccent
-                  //     ),
-                  //   borderRadius: BorderRadius.circular(5.0),
-                  // ),
-                  // child: Text(
-                  //   'Go to Next Screen',
-                  //   style: TextStyle(
-                  //     color: Colors.white,
-                  //     fontSize: 20,
-                  //     fontWeight: FontWeight.bold,
-                  //   ),
-                  // ),
                   child: Icon(
                     Icons.arrow_back,
                     color: Colors.white,
@@ -76,20 +62,6 @@ class Other extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      // Text(
-                      //   'KU',
-                      //   style: TextStyle(
-                      //   fontSize: 36, 
-                      //   color: Colors.white,
-                      //   ),
-                      // ),
-                      // Text(
-                      //   'Bike Borrow',
-                      //   style: TextStyle(
-                      //   fontSize: 24,
-                      //   color: Colors.white,
-                      //   ),
-                      // ),
                       Padding(
                         padding: EdgeInsets.fromLTRB(40, 40, 40, 20),
                           child: Text(
@@ -122,12 +94,6 @@ class Other extends StatelessWidget {
                         },
                         child: Container(
                           padding: EdgeInsets.all(10.0),
-                          // decoration: BoxDecoration(
-                          //   border: Border.all(
-                          //     color: Colors.blueAccent
-                          //     ),
-                          //   borderRadius: BorderRadius.circular(5.0),
-                          // ),
                           child: Text(
                             'ศูนย์ความช่วยเหลือ',
                             style: TextStyle(
@@ -152,12 +118,6 @@ class Other extends StatelessWidget {
                         },
                         child: Container(
                           padding: EdgeInsets.all(10.0),
-                          // decoration: BoxDecoration(
-                          //   border: Border.all(
-                          //     color: Colors.blueAccent
-                          //     ),
-                          //   borderRadius: BorderRadius.circular(5.0),
-                          // ),
                           child: Text(
                                 'ออกจากระบบ',
                                 style: TextStyle(
@@ -176,93 +136,6 @@ class Other extends StatelessWidget {
                   ),
                 ),
               ),
-            //   Positioned(
-            //   top: 350,
-            //   left: 100,
-            //   right: 100,
-            //   child: Container(
-            //     height: 50,
-            //     width: 100,
-            //     decoration: BoxDecoration(
-            //          gradient: LinearGradient(
-            //          begin: Alignment.topLeft,
-            //          end: Alignment.bottomRight,
-            //          colors: const [
-            //         Color.fromRGBO(28, 103, 88, 1),
-            //         Color.fromRGBO(61, 131, 97, 1),
-            //       ],
-            //     ),
-            //         borderRadius: BorderRadius.circular(5),
-            //     ),
-            //     child: const Center(
-            //       child: Text(
-            //             'ยืมจักรยาน',
-            //             style: TextStyle(
-            //             fontSize: 16, 
-            //             color: Colors.white,
-            //             ),
-            //           ),
-            //         ),
-            //   ),
-            // ),
-            // Positioned(
-            //   top: 440,
-            //   left: 100,
-            //   right: 100,
-            //   child: Container(
-            //     height: 50,
-            //     width: 100,
-            //     decoration: BoxDecoration(
-            //          gradient: LinearGradient(
-            //          begin: Alignment.topLeft,
-            //          end: Alignment.bottomRight,
-            //          colors: const [
-            //         Color.fromRGBO(28, 103, 88, 1),
-            //         Color.fromRGBO(61, 131, 97, 1),
-            //       ],
-            //     ),
-            //         borderRadius: BorderRadius.circular(5),
-            //     ),
-            //     child: const Center(
-            //       child: Text(
-            //             'คืนจักรยาน',
-            //             style: TextStyle(
-            //             fontSize: 16, 
-            //             color: Colors.white,
-            //             ),
-            //           ),
-            //         ),
-            //   ),
-            // ),
-            // Positioned(
-            //   top: 530,
-            //   left: 100,
-            //   right: 100,
-            //   child: Container(
-            //     height: 50,
-            //     width: 100,
-            //     decoration: BoxDecoration(
-            //          gradient: LinearGradient(
-            //          begin: Alignment.topLeft,
-            //          end: Alignment.bottomRight,
-            //          colors: const [
-            //         Color.fromRGBO(28, 103, 88, 1),
-            //         Color.fromRGBO(61, 131, 97, 1),
-            //       ],
-            //     ),
-            //         borderRadius: BorderRadius.circular(5),
-            //     ),
-            //     child: const Center(
-            //       child: Text(
-            //             'ตรวจสอบสถานะจักรยาน',
-            //             style: TextStyle(
-            //             fontSize: 16, 
-            //             color: Colors.white,
-            //             ),
-            //           ),
-            //         ),     
-            //   ),
-            // ),
           ],  
         ),
     );

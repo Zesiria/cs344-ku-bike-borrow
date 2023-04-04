@@ -2,19 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
-import 'package:ku_bike_borrow_project/help.dart';
 import 'homepage.dart';
 import 'other.dart';
-
-// void main() => runApp(MaterialApp(
-//     builder: (context, child) {
-//       return Directionality(textDirection: TextDirection.ltr, child: child!);
-//     },
-//     title: 'GNav',
-//     theme: ThemeData(
-//       primaryColor: Colors.grey[800],
-//     ),
-//     home: const Example()));
 
 class NavBar extends StatefulWidget {
   final dynamic user;
@@ -27,9 +16,6 @@ class NavBar extends StatefulWidget {
 
 class _NavBarState extends State<NavBar> {
   int _selectedIndex = 0;
-  static const TextStyle optionStyle =
-      TextStyle(fontSize: 30, fontWeight: FontWeight.w600);
-
 
   @override
   Widget build(BuildContext context) {
@@ -65,14 +51,6 @@ class _NavBarState extends State<NavBar> {
                   icon: Icons.home_outlined,
                   text: 'หน้าหลัก',
                 ),
-                // GButton(
-                //   icon: Icons.history_outlined,
-                //   text: 'ประวัติ',
-                // ),
-                // GButton(
-                //   icon: Icons.notifications_none_outlined,
-                //   text: 'แจ้งเตือน',
-                // ),
                 GButton(
                   icon: Icons.menu_outlined,
                   text: 'อื่นๆ',
@@ -92,7 +70,6 @@ class _NavBarState extends State<NavBar> {
   }
 
   Widget _widgetOption(){
-    print(widget.user);
     Widget homepage = HomePage(user: widget.user);
     Widget other = Other(user: widget.user);
     List<Widget> widgetOptions = <Widget>[
@@ -102,118 +79,3 @@ class _NavBarState extends State<NavBar> {
     return widgetOptions.elementAt(_selectedIndex);
   }
 }
-
-// class HomePage extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       backgroundColor: Colors.deepPurple[300],
-//       body: CustomScrollView(
-//         slivers: [
-//           // sliver app bar
-//           SliverAppBar(
-//             expandedHeight: 300,
-//             backgroundColor: Colors.deepPurple,
-//             leading: Icon(Icons.menu),
-//             floating: true,
-//             pinned: true,
-//             flexibleSpace: FlexibleSpaceBar(
-//               title: Text('F A N C Y A P P B A R'),
-//               background: Container(color: Colors.deepPurple[700]),
-//             ),
-//           ),
-
-//           // sliver items 1
-//           SliverToBoxAdapter(
-//             child: Padding(
-//               padding: const EdgeInsets.only(
-//                 top: 20.0,
-//                 left: 20,
-//                 right: 20,
-//               ),
-//               child: ClipRRect(
-//                 borderRadius: BorderRadius.circular(10),
-//                 child: Container(
-//                   color: Colors.deepPurple[400],
-//                   height: 150,
-//                 ),
-//               ),
-//             ),
-//           ),
-
-//           // sliver items 2
-//           SliverToBoxAdapter(
-//             child: Padding(
-//               padding: const EdgeInsets.only(
-//                 top: 20.0,
-//                 left: 20,
-//                 right: 20,
-//               ),
-//               child: ClipRRect(
-//                 borderRadius: BorderRadius.circular(10),
-//                 child: Container(
-//                   color: Colors.deepPurple[400],
-//                   height: 150,
-//                 ),
-//               ),
-//             ),
-//           ),
-
-//           // sliver items 3
-//           SliverToBoxAdapter(
-//             child: Padding(
-//               padding: const EdgeInsets.only(
-//                 top: 20.0,
-//                 left: 20,
-//                 right: 20,
-//               ),
-//               child: ClipRRect(
-//                 borderRadius: BorderRadius.circular(10),
-//                 child: Container(
-//                   color: Colors.deepPurple[400],
-//                   height: 150,
-//                 ),
-//               ),
-//             ),
-//           ),
-
-//           // sliver items 4
-//           SliverToBoxAdapter(
-//             child: Padding(
-//               padding: const EdgeInsets.only(
-//                 top: 20.0,
-//                 left: 20,
-//                 right: 20,
-//               ),
-//               child: ClipRRect(
-//                 borderRadius: BorderRadius.circular(10),
-//                 child: Container(
-//                   color: Colors.deepPurple[400],
-//                   height: 150,
-//                 ),
-//               ),
-//             ),
-//           ),
-
-//           // sliver items 5
-//           SliverToBoxAdapter(
-//             child: Padding(
-//               padding: const EdgeInsets.only(
-//                 top: 20.0,
-//                 left: 20,
-//                 right: 20,
-//               ),
-//               child: ClipRRect(
-//                 borderRadius: BorderRadius.circular(10),
-//                 child: Container(
-//                   color: Colors.deepPurple[400],
-//                   height: 150,
-//                 ),
-//               ),
-//             ),
-//           ),
-//         ],
-//       ),
-//     );
-//   }
-// }

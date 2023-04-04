@@ -139,64 +139,6 @@ class HomePage extends StatelessWidget {
                   ),
                 ),
               ),
-            //   Positioned(
-            //   top: 400,
-            //   left: 100,
-            //   right: 100,
-            //   child: Container(
-            //     height: 50,
-            //     width: 100,
-            //     decoration: BoxDecoration(
-            //          gradient: LinearGradient(
-            //          begin: Alignment.topLeft,
-            //          end: Alignment.bottomRight,
-            //          colors: const [
-            //         Color.fromRGBO(28, 103, 88, 1),
-            //         Color.fromRGBO(61, 131, 97, 1),
-            //       ],
-            //     ),
-            //         borderRadius: BorderRadius.circular(5),
-            //     ),
-            //     child: const Center(
-            //       child: Text(
-            //             'ยืมจักรยาน',
-            //             style: TextStyle(
-            //             fontSize: 16, 
-            //             color: Colors.white,
-            //             ),
-            //           ),
-            //         ),
-            //   ),
-            // ),
-            // Positioned(
-            //   top: 470,
-            //   left: 100,
-            //   right: 100,
-            //   child: Container(
-            //     height: 50,
-            //     width: 100,
-            //     decoration: BoxDecoration(
-            //          gradient: LinearGradient(
-            //          begin: Alignment.topLeft,
-            //          end: Alignment.bottomRight,
-            //          colors: const [
-            //         Color.fromRGBO(28, 103, 88, 1),
-            //         Color.fromRGBO(61, 131, 97, 1),
-            //       ],
-            //     ),
-            //         borderRadius: BorderRadius.circular(5),
-            //     ),
-            //     child: const Center(
-            //       child: Text(
-            //             'คืนจักรยาน',
-            //             style: TextStyle(
-            //             fontSize: 16, 
-            //             color: Colors.white,
-            //             ),
-            //           ),
-            //         ),
-            //   ),
-            // ),
           ],  
         ),
     );

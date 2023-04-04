@@ -76,13 +76,6 @@ class _RegisterState extends State<Register>{
                           color: Colors.white,
                           ),
                         ),
-                        // Text(
-                        //   'Bike Borrow',
-                        //   style: TextStyle(
-                        //   fontSize: 24,
-                        //   color: Colors.white,
-                        //   ),
-                        // ),
                         Padding(
                           padding: EdgeInsets.symmetric(horizontal: 20, vertical: 30),
                           child: TextField(
