@@ -36,29 +36,31 @@ class _QRViewExampleState extends State<QRViewExample> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: LoaderOverlay(
+      body: Container(decoration: const BoxDecoration(
+        gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [
+              Color.fromRGBO(28, 103, 88, 1),
+              Color.fromRGBO(61, 131, 97, 1)
+            ]
+          )
+        ),
         child: Column(
           children: <Widget>[
             Expanded(flex: 4, child: _buildQrView(context)),
             Expanded(
               flex: 1,
-              child: FittedBox(
-                fit: BoxFit.contain,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: <Widget>[
-                    if (result != null)
-                      Text(
-                          'Barcode Type: ${describeEnum(result!.format)}   Data: ${result!.code}')
-                    else
-                      const Text('Scan a code'),
-                  ],
-                ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: const <Widget>[
+                    Text('Scan a code', style: TextStyle(fontSize: 40, color: Colors.white),),
+                ],
               ),
-            )
+            ),
           ],
         ),
-      )
+      ),
     );
   }
 
